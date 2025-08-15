@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing na Prática - Transforme seu negócio no digital</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* Paleta escura seguindo site de referência */
+            --primary: #f74e00;
+            --primary-dark: #ffa600;
+            --primary-light: #ff6b7a;
+            --secondary: #2f3542;
+            --accent: #ff4757;
+            --light: #ffffff;
+            --dark: #0a0a0a;
+            --dark-secondary: #1a1a1a;
+            --dark-tertiary: #2a2a2a;
+            --text: #ffffff;
+            --text-secondary: #b8b8b8;
+            --text-muted: #888888;
+            --bg-gradient: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            --shadow: 0 8px 32px rgba(255, 71, 87, 0.1);
+            --shadow-hover: 0 16px 48px rgba(255, 71, 87, 0.2);
+            --border-radius: 16px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header escuro moderno */
+        header {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1.5rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 71, 87, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            font-size: 1.3rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text);
+            cursor: pointer;
+        }
+
+        /* Hero section com estética escura e gradientes */
+        .hero {
+            background: var(--bg-gradient);
+            padding: 10rem 0 6rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 71, 87, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            color: var(--text);
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero .highlight {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .hero .subtitle {
+            font-size: 1.4rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            font-weight: 400;
+        }
+
+        .hero-cta {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.25rem 2.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: var(--light);
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--light);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* Seção de apresentação do curso */
+        .course-intro {
+            padding: 6rem 0;
+            background: var(--dark-secondary);
+            position: relative;
+        }
+
+        .course-intro h2 {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            color: var(--text);
+        }
+
+        .course-intro .highlight {
+            color: var(--primary);
+        }
+
+        .course-intro p {
+            text-align: center;
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            line-height: 1.8;
+        }
+
+        .course-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--dark-tertiary);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 71, 87, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow);
+        }
+
+        .feature-card .icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--light);
+            font-size: 1.8rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Seção das instrutoras */
+        .instructors {
+            padding: 6rem 0;
+            background: var(--bg-gradient);
+        }
+
+        .instructors h2 {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .instructors .subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 4rem;
+        }
+
+        .instructors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+        }
+
+        .instructor-card {
+            background: var(--dark-secondary);
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 71, 87, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .instructor-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow);
+        }
+
+        .instructor-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+            border: 4px solid var(--primary);
+        }
+
+        .instructor-card h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .instructor-card .role {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .instructor-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        /* Seção do que vamos aprender */
+        .curriculum {
+            padding: 6rem 0;
+            background: var(--dark-secondary);
+        }
+
+        .curriculum h2 {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 4rem;
+            color: var(--text);
+        }
+
+        .curriculum .highlight {
+            color: var(--primary);
+        }
+
+        .curriculum-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .curriculum-item {
+            background: var(--dark-tertiary);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .curriculum-item:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow);
+        }
+
+        .curriculum-item .number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: var(--light);
+            border-radius: 50%;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .curriculum-item h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .curriculum-item p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Seção metodologia */
+        .methodology {
+            padding: 6rem 0;
+            background: var(--bg-gradient);
+            text-align: center;
+        }
+
+        .methodology h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            color: var(--text);
+        }
+
+        .methodology .highlight {
+            color: var(--primary);
+        }
+
+        .methodology p {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 4rem;
+            line-height: 1.8;
+        }
+
+        .methodology-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .methodology-feature {
+            background: var(--dark-secondary);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 71, 87, 0.1);
+        }
+
+        .methodology-feature i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .methodology-feature h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .methodology-feature p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Seção para quem é o curso */
+        .target-audience {
+            padding: 6rem 0;
+            background: var(--dark-secondary);
+        }
+
+        .target-audience h2 {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 4rem;
+            color: var(--text);
+        }
+
+        .target-audience .highlight {
+            color: var(--primary);
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .audience-card {
+            background: var(--dark-tertiary);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 71, 87, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .audience-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow);
+        }
+
+        .audience-card i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .audience-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .audience-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* CTA final com gradiente */
+        .final-cta {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            text-align: center;
+            color: var(--light);
+        }
+
+        .final-cta h2 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .final-cta p {
+            font-size: 1.4rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .final-cta .quote {
+            font-style: italic;
+            font-size: 1.2rem;
+            margin-top: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Footer escuro */
+        footer {
+            background: var(--dark);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid rgba(255, 71, 87, 0.1);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-column h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .footer-column p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-column a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 71, 87, 0.1);
+            color: var(--text-muted);
+        }
+
+        /* Animações mais suaves */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: all 0.8s ease;
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: all 0.8s ease;
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Responsivo otimizado */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav ul {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--dark);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: var(--shadow);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                border-top: 1px solid rgba(255, 71, 87, 0.1);
+            }
+
+            nav ul.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .hero {
+                padding: 8rem 0 4rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .instructors-grid,
+            .curriculum-grid,
+            .audience-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .final-cta h2 {
+                font-size: 2.5rem;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header adaptado -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-rocket"></i>
+                Marketing na Prática
+            </div>
+            
+            <nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul id="mainMenu">
+                    <li><a href="#curso">O Curso</a></li>
+                    <li><a href="#instrutoras">Instrutoras</a></li>
+                    <li><a href="#conteudo">Conteúdo</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero section com conteúdo do Marketing na Prática -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="fade-in">
+                    Bem-vindo(a) ao <span class="highlight">Marketing na Prática</span>
+                </h1>
+                <p class="subtitle fade-in">
+                    Se você está aqui, é porque quer crescer no digital — e nós vamos te ajudar a chegar lá.
+                </p>
+                
+                <div class="hero-cta fade-in">
+                    <a href="#curso" class="btn">
+                        <i class="fas fa-play"></i>
+                        Começar Agora
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de apresentação do curso -->
+    <section class="course-intro" id="curso">
+        <div class="container">
+            <h2 class="fade-in">
+                Transforme seu <span class="highlight">negócio no digital</span>
+            </h2>
+            <p class="fade-in">
+                O Marketing na Prática nasceu para tornar o marketing acessível, real e possível para qualquer pessoa que queira transformar seu negócio, sua marca ou até mesmo começar uma nova carreira. Durante um mês, vamos trabalhar lado a lado para que você entenda, de forma prática, como criar conteúdos, se posicionar e vender usando as redes sociais.
+            </p>
+            
+            <div class="course-features">
+                <div class="feature-card fade-in">
+                    <div class="icon">
+                        <i class="fas fa-instagram"></i>
+                    </div>
+                    <h3>Instagram Profissional</h3>
+                    <p>Aprenda a gerenciar seu Instagram de forma estratégica e profissional para gerar resultados reais.</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="icon">
+                        <i class="fas fa-content"></i>
+                    </div>
+                    <h3>Conteúdo Estratégico</h3>
+                    <p>Crie conteúdos que conectam com sua audiência e geram vendas de forma consistente.</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Vendas no Digital</h3>
+                    <p>Domine as estratégias para vender online e transformar seguidores em clientes fiéis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção das instrutoras -->
+    <section class="instructors" id="instrutoras">
+        <div class="container">
+            <h2 class="fade-in">Quem vai te guiar nessa jornada</h2>
+            <p class="subtitle fade-in">Duas especialistas com experiência comprovada no mercado digital</p>
+            
+            <div class="instructors-grid">
+                <div class="instructor-card slide-in-left">
+                    <img src="/placeholder.svg?height=120&width=120" alt="Yasmin Evelyne">
+                    <h3>Yasmin Evelyne</h3>
+                    <p class="role">Estrategista de Marketing</p>
+                    <p>Mãe e empreendedora. Comunicativa, visionária e atleta por paixão.</p>
+                    <p>Especialista em planejamento, posicionamento e organização, com mais de 3 anos de experiência no digital.</p>
+                    <p><strong>Acredito que marketing é mais do que vender — é sobre transformar vidas e negócios.</strong></p>
+                </div>
+                
+                <div class="instructor-card slide-in-right">
+                    <img src="/placeholder.svg?height=120&width=120" alt="Beatriz Oliveira">
+                    <h3>Beatriz Oliveira</h3>
+                    <p class="role">Especialista em Vendas</p>
+                    <p>Empreendedora, criadora de conteúdo e especialista em vendas por datas comemorativas e estratégias ao vivo.</p>
+                    <p>Há 5 anos na internet com constância e intencionalidade. Faço o básico bem feito todos os dias porque sei que é isso que funciona.</p>
+                    <p><strong>Minha missão é mostrar que é possível crescer no digital com fé, coragem e ousadia.</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção do conteúdo do curso -->
+    <section class="curriculum" id="conteudo">
+        <div class="container">
+            <h2 class="fade-in">
+                O que vamos <span class="highlight">aprender juntos</span>
+            </h2>
+            
+            <div class="curriculum-grid">
+                <div class="curriculum-item fade-in">
+                    <div class="number">1</div>
+                    <h3>Gerenciar Instagram Profissionalmente</h3>
+                    <p>Transforme seu perfil em uma máquina de vendas com estratégias profissionais de gestão.</p>
+                </div>
+                
+                <div class="curriculum-item fade-in">
+                    <div class="number">2</div>
+                    <h3>Criar Conteúdos Estratégicos</h3>
+                    <p>Desenvolva conteúdos que conectam com sua audiência e geram vendas de forma consistente.</p>
+                </div>
+                
+                <div class="curriculum-item fade-in">
+                    <div class="number">3</div>
+                    <h3>Dominar os Stories</h3>
+                    <p>Use os Stories para engajar sua audiência e fortalecer sua marca de forma autêntica.</p>
+                </div>
+                
+                <div class="curriculum-item fade-in">
+                    <div class="number">4</div>
+                    <h3>Atendimento Humanizado</h3>
+                    <p>Aprenda a atender clientes de forma que fideliza e gera indicações naturalmente.</p>
+                </div>
+                
+                <div class="curriculum-item fade-in">
+                    <div class="number">5</div>
+                    <h3>Ferramentas do Instagram</h3>
+                    <p>Domine todas as ferramentas da plataforma para maximizar seus resultados.</p>
+                </div>
+                
+                <div class="curriculum-item fade-in">
+                    <div class="number">6</div>
+                    <h3>Atuação no Mercado Digital</h3>
+                    <p>Seja em uma empresa ou no seu próprio negócio, saiba como se posicionar no digital.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção metodologia -->
+    <section class="methodology">
+        <div class="container">
+            <h2 class="fade-in">
+                Nossa <span class="highlight">metodologia</span>
+            </h2>
+            <p class="fade-in">
+                Nada de aulas chatas e teóricas demais. Aqui, você vai aprender fazendo:
+            </p>
+            
+            <div class="methodology-features">
+                <div class="methodology-feature fade-in">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>Aulas Práticas</h3>
+                    <p>Aulas interativas para colocar a mão na massa e aplicar imediatamente.</p>
+                </div>
+                
+                <div class="methodology-feature fade-in">
+                    <i class="fas fa-tasks"></i>
+                    <h3>Exercícios Reais</h3>
+                    <p>Exercícios práticos para aplicar no seu negócio durante o curso.</p>
+                </div>
+                
+                <div class="methodology-feature fade-in">
+                    <i class="fas fa-comments"></i>
+                    <h3>Feedback Individual</h3>
+                    <p>Acompanhamento personalizado para você saber exatamente o que melhorar.</p>
+                </div>
+                
+                <div class="methodology-feature fade-in">
+                    <i class="fas fa-heart"></i>
+                    <h3>Ambiente Acolhedor</h3>
+                    <p>Um espaço seguro, acolhedor e cheio de propósito para seu crescimento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção para quem é o curso -->
+    <section class="target-audience">
+        <div class="container">
+            <h2 class="fade-in">
+                Para quem é <span class="highlight">esse curso</span>
+            </h2>
+            
+            <div class="audience-grid">
+                <div class="audience-card fade-in">
+                    <i class="fas fa-seedling"></i>
+                    <h3>Iniciantes no Digital</h3>
+                    <p>Quer começar no marketing digital do zero e não sabe por onde começar.</p>
+                </div>
+                
+                <div class="audience-card fade-in">
+                    <i class="fas fa-store"></i>
+                    <h3>Empreendedores</h3>
+                    <p>Já empreende, mas não consegue ter presença e vendas consistentes no Instagram.</p>
+                </div>
+                
+                <div class="audience-card fade-in">
+                    <i class="fas fa-building"></i>
+                    <h3>Profissionais</h3>
+                    <p>Trabalha em uma empresa e quer melhorar os resultados online da marca.</p>
+                </div>
+                
+                <div class="audience-card fade-in">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Sonhadores Digitais</h3>
+                    <p>Sonha em viver do digital, mas não sabe por onde começar sua jornada.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA final -->
+    <section class="final-cta" id="contato">
+        <div class="container">
+            <h2 class="fade-in">
+                Você não chegou aqui por acaso
+            </h2>
+            <p class="fade-in">
+                Tem algo grande sendo gerado dentro de você — e estamos aqui para te ajudar a colocar isso no mundo.
+            </p>
+            <div class="fade-in">
+                <a href="https://wa.me/5511999999999" class="btn btn-outline">
+                    <i class="fab fa-whatsapp"></i>
+                    Quero Participar
+                </a>
+            </div>
+            <p class="quote fade-in">
+                "Tudo posso naquele que me fortalece." – Filipenses 4:13
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Marketing na Prática</h3>
+                    <p>Transformando negócios através do marketing digital acessível, real e estratégico. Nossa essência é simples: fortalecer marcas e pessoas com marketing criativo e de verdade.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>O Curso</h3>
+                    <ul>
+                        <li><a href="#curso">Sobre o Curso</a></li>
+                        <li><a href="#instrutoras">Instrutoras</a></li>
+                        <li><a href="#conteudo">Conteúdo</a></li>
+                        <li><a href="#contato">Inscrições</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <ul>
+                        <li><i class="fab fa-whatsapp"></i> (11) 99999-9999</li>
+                        <li><i class="fas fa-envelope"></i> contato@marketingnapratica.com.br</li>
+                        <li><i class="fab fa-instagram"></i> @marketingnapratica</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 Marketing na Prática. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainMenu = document.getElementById('mainMenu');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            mainMenu.classList.toggle('active');
+            this.innerHTML = mainMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = 100;
+                    const targetPosition = target.offsetTop - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    if (mainMenu.classList.contains('active')) {
+                        mainMenu.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                }
+            });
+        });
+        
+        // Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all animation elements
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Header scroll effect
+        let lastScrollTop = 0;
+        const header = document.querySelector('header');
+        
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollTop = scrollTop;
+        }, { passive: true });
+
+        // Parallax effect for hero
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        }, { passive: true });
+    </script>
+</body>
+</html>

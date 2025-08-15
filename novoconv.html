@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing na Prática - Transforme Seu Negócio Digital</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF6B35;
+            --primary-light: #FF8A5B;
+            --primary-dark: #E55A2B;
+            --secondary: #FFD700;
+            --accent: #FF4757;
+            --text: #1A1A1A;
+            --text-light: #4A4A4A;
+            --text-muted: #8A8A8A;
+            --bg: #FFFFFF;
+            --bg-glass: rgba(255, 255, 255, 0.1);
+            --bg-dark: #0F0F0F;
+            --gradient-primary: linear-gradient(135deg, #FF6B35 0%, #FFD700 50%, #FF4757 100%);
+            --gradient-secondary: linear-gradient(45deg, #FF6B35, #FF8A5B, #FFD700);
+            --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            --shadow-glow: 0 0 30px rgba(255, 107, 53, 0.3);
+            --shadow-intense: 0 20px 60px rgba(255, 107, 53, 0.4);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            overflow-x: hidden;
+        }
+
+        /* Adicionando partículas flutuantes futuristas */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.7;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        /* Loading futurista com anéis múltiplos e gradientes */
+        .futuristic-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            background-size: 400% 400%;
+            animation: gradientShift 3s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+        
+        .futuristic-loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .loader-content {
+            text-align: center;
+            color: white;
+        }
+        
+        .loader-rings {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 40px;
+        }
+        
+        .loader-ring {
+            position: absolute;
+            border: 4px solid transparent;
+            border-radius: 50%;
+            animation: spin 2s linear infinite;
+        }
+        
+        .loader-ring:nth-child(1) {
+            width: 150px;
+            height: 150px;
+            border-top: 4px solid rgba(255, 255, 255, 0.9);
+            border-right: 4px solid rgba(255, 215, 0, 0.7);
+            animation-duration: 2s;
+        }
+        
+        .loader-ring:nth-child(2) {
+            width: 110px;
+            height: 110px;
+            top: 20px;
+            left: 20px;
+            border-top: 4px solid rgba(255, 71, 87, 0.8);
+            border-left: 4px solid rgba(255, 138, 91, 0.6);
+            animation-duration: 1.5s;
+            animation-direction: reverse;
+        }
+        
+        .loader-ring:nth-child(3) {
+            width: 70px;
+            height: 70px;
+            top: 40px;
+            left: 40px;
+            border-top: 4px solid rgba(255, 255, 255, 1);
+            animation-duration: 1s;
+        }
+        
+        .loader-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            animation: pulse 2s ease-in-out infinite;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.05); }
+        }
+
+        /* Header futurista com glassmorphism */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 107, 53, 0.2);
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 900;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255, 107, 53, 0.3);
+        }
+
+        /* Hero section com elementos 3D e animações impactantes */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #FFFFFF 0%, #FFF9F7 50%, #FFFFFF 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(48px, 8vw, 80px);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 40px rgba(255, 107, 53, 0.3);
+            animation: textGlow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes textGlow {
+            0% { filter: drop-shadow(0 0 20px rgba(255, 107, 53, 0.3)); }
+            100% { filter: drop-shadow(0 0 40px rgba(255, 107, 53, 0.6)); }
+        }
+        
+        .hero .subtitle {
+            font-size: 24px;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+        
+        .hero .cta-primary {
+            display: inline-block;
+            padding: 20px 50px;
+            background: var(--gradient-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: var(--shadow-intense);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+        
+        .hero .cta-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .hero .cta-primary:hover::before {
+            left: 100%;
+        }
+        
+        .hero .cta-primary:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 25px 80px rgba(255, 107, 53, 0.6);
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: var(--shadow-intense); }
+            50% { box-shadow: 0 20px 80px rgba(255, 107, 53, 0.8); }
+        }
+
+        /* Seção de urgência com timer futurista */
+        .urgency-section {
+            padding: 80px 0;
+            background: var(--bg-dark);
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        
+        .urgency-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-primary);
+            opacity: 0.1;
+            animation: gradientShift 5s ease infinite;
+        }
+        
+        .timer-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .timer-box {
+            background: var(--gradient-glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 30px 20px;
+            min-width: 120px;
+            box-shadow: var(--shadow-glow);
+        }
+        
+        .timer-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--secondary);
+            display: block;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+        
+        .timer-label {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+            margin-top: 10px;
+        }
+
+        /* Cards com efeito glassmorphism e hover 3D */
+        .features-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #FFFFFF 0%, #FFF9F7 100%);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 60px auto 0;
+            padding: 0 24px;
+        }
+        
+        .feature-card {
+            background: var(--gradient-glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 107, 53, 0.2);
+            border-radius: 25px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(255, 107, 53, 0.1);
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-15px) rotateX(5deg);
+            box-shadow: 0 25px 80px rgba(255, 107, 53, 0.3);
+            border-color: rgba(255, 107, 53, 0.5);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            box-shadow: var(--shadow-glow);
+            animation: iconFloat 3s ease-in-out infinite;
+        }
+        
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .feature-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+
+        /* Seção de depoimentos com avatars e estrelas */
+        .testimonials-section {
+            padding: 100px 0;
+            background: var(--bg-dark);
+            color: white;
+            text-align: center;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 60px auto 0;
+            padding: 0 24px;
+        }
+        
+        .testimonial-card {
+            background: var(--gradient-glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 40px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-glow);
+        }
+        
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .testimonial-stars {
+            color: var(--secondary);
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        /* Formulário futurista com efeitos de foco */
+        .form-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #FFFFFF 0%, #FFF9F7 100%);
+            text-align: center;
+        }
+        
+        .form-container {
+            max-width: 600px;
+            margin: 60px auto 0;
+            padding: 0 24px;
+        }
+        
+        .signup-form {
+            background: var(--gradient-glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 107, 53, 0.2);
+            border-radius: 30px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(255, 107, 53, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--text);
+            font-size: 16px;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 18px 24px;
+            border: 2px solid rgba(255, 107, 53, 0.2);
+            border-radius: 15px;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            color: var(--text);
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .form-submit {
+            width: 100%;
+            padding: 20px;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-intense);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .form-submit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .form-submit:hover::before {
+            left: 100%;
+        }
+        
+        .form-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 25px 80px rgba(255, 107, 53, 0.6);
+        }
+
+        /* Seções com títulos impactantes */
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(36px, 6vw, 60px);
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 20px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .section-subtitle {
+            font-size: 20px;
+            color: var(--text-light);
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            line-height: 1.6;
+        }
+
+        /* Footer futurista */
+        footer {
+            background: var(--bg-dark);
+            color: white;
+            text-align: center;
+            padding: 60px 0;
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        .footer-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            font-weight: 900;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        /* Animações de entrada */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease;
+        }
+        
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Responsividade otimizada */
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 80vh;
+                padding: 40px 0;
+            }
+            
+            .timer-container {
+                gap: 20px;
+            }
+            
+            .timer-box {
+                min-width: 100px;
+                padding: 20px 15px;
+            }
+            
+            .timer-number {
+                font-size: 36px;
+            }
+            
+            .features-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .signup-form {
+                padding: 30px 20px;
+            }
+            
+            .section-title {
+                margin-bottom: 15px;
+            }
+            
+            .section-subtitle {
+                font-size: 18px;
+                margin-bottom: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Partículas flutuantes -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Loading futurista aprimorado -->
+    <div class="futuristic-loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-rings">
+                <div class="loader-ring"></div>
+                <div class="loader-ring"></div>
+                <div class="loader-ring"></div>
+            </div>
+            <div class="loader-text">PREPARANDO EXPERIÊNCIA</div>
+        </div>
+    </div>
+
+    <!-- Header com glassmorphism -->
+    <header>
+        <div class="header-container">
+            <div class="logo">MARKETING NA PRÁTICA</div>
+        </div>
+    </header>
+
+    <!-- Hero section futurista -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="fade-in">
+                DOMINE O MARKETING DIGITAL E TRANSFORME SEU NEGÓCIO
+            </h1>
+            <p class="subtitle fade-in">
+                Aprenda com especialistas e fature no digital com estratégias que realmente funcionam
+            </p>
+            <a href="#form" class="cta-primary fade-in">
+                GARANTA SUA VAGA AGORA
+            </a>
+        </div>
+    </section>
+
+    <!-- Seção de urgência com timer -->
+    <section class="urgency-section">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">RESTAM APENAS</h2>
+            <div class="timer-container">
+                <div class="timer-box">
+                    <span class="timer-number" id="days">12</span>
+                    <span class="timer-label">Vagas</span>
+                </div>
+                <div class="timer-box">
+                    <span class="timer-number" id="hours">48</span>
+                    <span class="timer-label">Horas</span>
+                </div>
+                <div class="timer-box">
+                    <span class="timer-number" id="minutes">30</span>
+                    <span class="timer-label">Minutos</span>
+                </div>
+                <div class="timer-box">
+                    <span class="timer-number" id="seconds">15</span>
+                    <span class="timer-label">Segundos</span>
+                </div>
+            </div>
+            <p style="font-size: 20px; margin-top: 30px; opacity: 0.9;">
+                Para a próxima turma com <strong>DESCONTO EXCLUSIVO</strong>
+            </p>
+        </div>
+    </section>
+
+    <!-- Features com cards glassmorphism -->
+    <section class="features-section">
+        <h2 class="section-title fade-in">O QUE VOCÊ VAI APRENDER</h2>
+        <p class="section-subtitle fade-in">
+            Conteúdo 100% prático para transformar seu conhecimento em resultados reais
+        </p>
+        
+        <div class="features-grid">
+            <div class="feature-card fade-in">
+                <div class="feature-icon">📈</div>
+                <h3>Estratégias de Crescimento</h3>
+                <p>Aprenda a criar conteúdos que realmente convertem e geram vendas no digital</p>
+            </div>
+            
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🎯</div>
+                <h3>Posicionamento Profissional</h3>
+                <p>Construa uma marca forte e se torne referência no seu nicho de mercado</p>
+            </div>
+            
+            <div class="feature-card fade-in">
+                <div class="feature-icon">💰</div>
+                <h3>Monetização Eficaz</h3>
+                <p>Transforme seguidores em clientes e aumente seu faturamento mensalmente</p>
+            </div>
+            
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🚀</div>
+                <h3>Instagram como Negócio</h3>
+                <p>Use o Instagram como uma máquina de vendas automatizada para seu negócio</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos com avatars -->
+    <section class="testimonials-section">
+        <h2 class="section-title" style="color: white;">O QUE NOSSOS ALUNOS DIZEM</h2>
+        <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">
+            ⭐ 4.9/5 em mais de 200 avaliações
+        </p>
+        
+        <div class="testimonials-grid">
+            <div class="testimonial-card fade-in">
+                <div class="testimonial-avatar">M</div>
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">
+                    "Em 3 meses consegui triplicar meu faturamento. O curso é incrível e as professoras são muito didáticas!"
+                </p>
+                <p class="testimonial-author">— Maria Silva, Consultora</p>
+            </div>
+            
+            <div class="testimonial-card fade-in">
+                <div class="testimonial-avatar">J</div>
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">
+                    "Nunca pensei que conseguiria vender pelo Instagram. Hoje é minha principal fonte de renda!"
+                </p>
+                <p class="testimonial-author">— João Santos, Empreendedor</p>
+            </div>
+            
+            <div class="testimonial-card fade-in">
+                <div class="testimonial-avatar">A</div>
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">
+                    "O melhor investimento que fiz! Aprendi estratégias que realmente funcionam no mercado atual."
+                </p>
+                <p class="testimonial-author">— Ana Costa, Designer</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulário futurista -->
+    <section class="form-section" id="form">
+        <h2 class="section-title fade-in">GARANTE SUA VAGA PROMOCIONAL</h2>
+        <p class="section-subtitle fade-in">
+            Preencha o formulário e seja avisado em primeira mão quando as inscrições abrirem
+        </p>
+        
+        <div class="form-container">
+            <form class="signup-form fade-in" id="signupForm">
+                <div class="form-group">
+                    <label for="name">Nome Completo</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">WhatsApp</label>
+                    <input type="tel" id="phone" name="phone" placeholder="(11) 99999-9999" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="business">Qual seu tipo de negócio?</label>
+                    <select id="business" name="business" required>
+                        <option value="">Selecione uma opção</option>
+                        <option value="servicos">Prestação de Serviços</option>
+                        <option value="produtos">Venda de Produtos</option>
+                        <option value="consultoria">Consultoria/Coaching</option>
+                        <option value="freelancer">Freelancer</option>
+                        <option value="iniciante">Ainda não tenho negócio</option>
+                        <option value="outro">Outro</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="form-submit">
+                    QUERO MINHA VAGA PROMOCIONAL
+                </button>
+                
+                <p style="margin-top: 20px; font-size: 14px; color: var(--text-muted); text-align: center;">
+                    🔒 Seus dados estão seguros conosco • 7 dias de garantia
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer futurista -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">MARKETING NA PRÁTICA</div>
+            <p style="opacity: 0.8;">&copy; 2024 Marketing na Prática. Todos os direitos reservados.</p>
+            <p style="opacity: 0.6; margin-top: 10px;">Transformando negócios através do marketing digital</p>
+        </div>
+    </footer>
+
+    <script>
+        function createParticles() {
+            const particles = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                particles.appendChild(particle);
+            }
+        }
+
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+                createParticles();
+                startAnimations();
+            }, 3000);
+        });
+
+        function updateTimer() {
+            const days = document.getElementById('days');
+            const hours = document.getElementById('hours');
+            const minutes = document.getElementById('minutes');
+            const seconds = document.getElementById('seconds');
+            
+            let timeLeft = {
+                days: parseInt(days.textContent),
+                hours: parseInt(hours.textContent),
+                minutes: parseInt(minutes.textContent),
+                seconds: parseInt(seconds.textContent)
+            };
+            
+            if (timeLeft.seconds > 0) {
+                timeLeft.seconds--;
+            } else if (timeLeft.minutes > 0) {
+                timeLeft.minutes--;
+                timeLeft.seconds = 59;
+            } else if (timeLeft.hours > 0) {
+                timeLeft.hours--;
+                timeLeft.minutes = 59;
+                timeLeft.seconds = 59;
+            } else if (timeLeft.days > 0) {
+                timeLeft.days--;
+                timeLeft.hours = 23;
+                timeLeft.minutes = 59;
+                timeLeft.seconds = 59;
+            }
+            
+            days.textContent = timeLeft.days;
+            hours.textContent = timeLeft.hours;
+            minutes.textContent = timeLeft.minutes;
+            seconds.textContent = timeLeft.seconds;
+        }
+        
+        setInterval(updateTimer, 1000);
+
+        function startAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('.form-submit');
+            const originalText = submitBtn.textContent;
+            
+            submitBtn.textContent = 'PROCESSANDO...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                alert('🎉 Inscrição realizada com sucesso! Você receberá um e-mail de confirmação em breve.');
+                this.reset();
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }, 2500);
+        });
+
+        document.getElementById('phone').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            value = value.replace(/(\d{2})(\d)/, '($1) $2');
+            value = value.replace(/(\d{5})(\d)/, '$1-$2');
+            e.target.value = value;
+        });
+
+        document.querySelector('.cta-primary').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('#form').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>

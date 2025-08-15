@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing na Prática - Curso Completo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background-color: #2a2a2a;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ff6b35;
+        }
+
+        .logo::before {
+            content: "🎯";
+            margin-right: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #ff6b35;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 6rem 2rem 2rem;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-content .highlight {
+            color: #ff6b35;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #cccccc;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background-color: #ff6b35;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #e55a2b;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #ffffff;
+            padding: 1rem 2rem;
+            border: 2px solid #ffffff;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background-color: #ffffff;
+            color: #1a1a1a;
+        }
+
+        .hero-image {
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Video Section */
+        .video-section {
+            padding: 4rem 2rem;
+            background-color: #2a2a2a;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #ff6b35;
+        }
+
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .video-card {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(45deg, #ff6b35, #e55a2b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .video-info {
+            padding: 1.5rem;
+        }
+
+        .video-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #ff6b35;
+        }
+
+        .video-info p {
+            color: #cccccc;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 4rem 2rem;
+            background-color: #1a1a1a;
+        }
+
+        .about-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-content p {
+            font-size: 1.2rem;
+            color: #cccccc;
+            margin-bottom: 2rem;
+        }
+
+        /* Hosts Section */
+        .hosts-section {
+            padding: 4rem 2rem;
+            background-color: #2a2a2a;
+        }
+
+        .hosts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .host-card {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .host-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff6b35, #e55a2b);
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .host-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #ff6b35;
+        }
+
+        .host-card .role {
+            color: #cccccc;
+            margin-bottom: 1rem;
+        }
+
+        .host-card p {
+            color: #cccccc;
+            font-size: 0.9rem;
+        }
+
+        /* Registration Section */
+        .registration-section {
+            padding: 4rem 2rem;
+            background-color: #1a1a1a;
+        }
+
+        .registration-form {
+            max-width: 600px;
+            margin: 3rem auto 0;
+            background-color: #2a2a2a;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: 2px solid #ff6b35;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-submit {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #2a2a2a;
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid #3a3a3a;
+        }
+
+        .footer-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            color: #ff6b35;
+            font-weight: bold;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .videos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hosts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">Marketing na Prática</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#curso">O Curso</a></li>
+                    <li><a href="#instrutoras">Instrutoras</a></li>
+                    <li><a href="#conteudo">Conteúdo</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Bem-vindo(a) ao<br><span class="highlight">Marketing na Prática</span></h1>
+                <p>Se você está aqui, é porque quer crescer no digital — e nós vamos te ajudar a chegar lá.</p>
+                <div class="hero-buttons">
+                    <a href="#registro" class="btn-primary">COMPRAR AGORA</a>
+                    <a href="#videos" class="btn-secondary">LISTA DE ESPERA</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="img/3.png" alt="Mulher trabalhando com laptop" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section id="videos" class="video-section">
+        <div class="section-container">
+            <h2 class="section-title">Edições Anteriores</h2>
+            <div class="videos-grid">
+                <div class="video-card">
+                    <div class="video-placeholder">▶️</div>
+                    <div class="video-info">
+                        <h3>1ª Edição - Fundamentos</h3>
+                        <p>Conheça os principais conceitos e estratégias que transformaram mais de 500 profissionais em especialistas em marketing digital.</p>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-placeholder">▶️</div>
+                    <div class="video-info">
+                        <h3>2ª Edição - Avançado</h3>
+                        <p>Técnicas avançadas de conversão, automação e análise de dados que levaram nossos alunos a resultados extraordinários.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="curso" class="about-section">
+        <div class="section-container">
+            <h2 class="section-title">Sobre o Curso</h2>
+            <div class="about-content">
+                <p>O Marketing na Prática é um curso intensivo que combina teoria sólida com aplicação real. Em 8 semanas, você aprenderá desde os fundamentos até as estratégias mais avançadas do marketing digital.</p>
+                <p>Nosso método único foca na prática: cada conceito aprendido é imediatamente aplicado em projetos reais, garantindo que você saia do curso com experiência comprovada e resultados mensuráveis.</p>
+                <p>Mais de 1.200 profissionais já transformaram suas carreiras conosco. Agora é a sua vez.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hosts Section -->
+    <section id="instrutoras" class="hosts-section">
+        <div class="section-container">
+            <h2 class="section-title">Suas Instrutoras</h2>
+            <div class="hosts-grid">
+                <div class="host-card">
+                    <div class="host-avatar">👩‍💼</div>
+                    <h3>Ana Carolina Silva</h3>
+                    <div class="role">Especialista em Growth Marketing</div>
+                    <p>15 anos de experiência em marketing digital, ex-Google e Facebook. Responsável por campanhas que geraram mais de R$ 50 milhões em receita para startups e grandes empresas.</p>
+                </div>
+                <div class="host-card">
+                    <div class="host-avatar">👩‍💻</div>
+                    <h3>Mariana Santos</h3>
+                    <div class="role">Consultora em Performance</div>
+                    <p>Especialista em análise de dados e otimização de conversão. Ajudou mais de 200 empresas a aumentarem seu ROI em até 300% através de estratégias baseadas em dados.</p>
+                </div>
+                <div class="host-card">
+                    <div class="host-avatar">👩‍🎨</div>
+                    <h3>Juliana Costa</h3>
+                    <div class="role">Diretora de Conteúdo</div>
+                    <p>Criadora de conteúdo viral e estrategista de marca. Suas campanhas alcançaram mais de 10 milhões de pessoas e geraram engajamento orgânico para marcas de todos os tamanhos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section id="registro" class="registration-section">
+        <div class="section-container">
+            <h2 class="section-title">Reserve sua Vaga - 3ª Edição</h2>
+            <form class="registration-form" id="registrationForm">
+                <div class="form-group">
+                    <label for="nome">Nome Completo *</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefone">Telefone/WhatsApp *</label>
+                    <input type="tel" id="telefone" name="telefone" required>
+                </div>
+                <div class="form-group">
+                    <label for="experiencia">Nível de Experiência *</label>
+                    <select id="experiencia" name="experiencia" required>
+                        <option value="">Selecione...</option>
+                        <option value="iniciante">Iniciante</option>
+                        <option value="intermediario">Intermediário</option>
+                        <option value="avancado">Avançado</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="objetivo">Qual seu principal objetivo? *</label>
+                    <textarea id="objetivo" name="objetivo" placeholder="Conte-nos o que você espera alcançar com o curso..." required></textarea>
+                </div>
+                <div class="form-submit">
+                    <button type="submit" class="btn-primary">RESERVAR MINHA VAGA</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-logos">
+            <div class="footer-logo">🎯</div>
+            <div class="footer-logo">LIDERA</div>
+        </div>
+        <p>&copy; 2024 Marketing na Prática. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Simple validation
+            if (!data.nome || !data.email || !data.telefone || !data.experiencia || !data.objetivo) {
+                alert('Por favor, preencha todos os campos obrigatórios.');
+                return;
+            }
+            
+            // Simulate form submission
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            
+            submitButton.textContent = 'ENVIANDO...';
+            submitButton.disabled = true;
+            
+            setTimeout(() => {
+                alert('Inscrição realizada com sucesso! Entraremos em contato em breve.');
+                this.reset();
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+            }, 2000);
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(42, 42, 42, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.backgroundColor = '#2a2a2a';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // Video placeholder click effect
+        document.querySelectorAll('.video-placeholder').forEach(placeholder => {
+            placeholder.addEventListener('click', function() {
+                alert('Vídeo será carregado em breve! Inscreva-se para ter acesso completo.');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+/* Reset básico e estilos gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Seção Hero */
+.hero-section {
+    padding: 60px 0;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.hero-image {
+    flex: 1;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.hero-text {
+    flex: 1;
+    text-align: right;
+}
+
+.hero-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+/* Botão CTA */
+.cta-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+}
+
+.cta-button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(52, 152, 219, 0.4);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column;
+    }
+    
+    .hero-text {
+        text-align: center;
+        order: -1;
+    }
+    
+    .hero-image {
+        margin-top: 30px;
+    }
+}

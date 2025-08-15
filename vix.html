@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing na Prática - Curso Completo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background-color: #2a2a2a;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ff6b35;
+        }
+
+        .logo::before {
+            content: "🎯";
+            margin-right: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #ff6b35;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 6rem 2rem 2rem;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-content .highlight {
+            color: #ff6b35;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #cccccc;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background-color: #ff6b35;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #e55a2b;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #ffffff;
+            padding: 1rem 2rem;
+            border: 2px solid #ffffff;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background-color: #ffffff;
+            color: #1a1a1a;
+        }
+
+        .hero-image {
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Video Section */
+        .video-section {
+            padding: 4rem 2rem;
+            background-color: #2a2a2a;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #ff6b35;
+        }
+
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .video-card {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(45deg, #ff6b35, #e55a2b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .video-info {
+            padding: 1.5rem;
+        }
+
+        .video-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #ff6b35;
+        }
+
+        .video-info p {
+            color: #cccccc;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 4rem 2rem;
+            background-color: #1a1a1a;
+        }
+
+        .about-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-content p {
+            font-size: 1.2rem;
+            color: #cccccc;
+            margin-bottom: 2rem;
+        }
+
+        /* Hosts Section */
+        .hosts-section {
+            padding: 4rem 2rem;
+            background-color: #2a2a2a;
+        }
+
+        .hosts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .host-card {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .host-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff6b35, #e55a2b);
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .host-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #ff6b35;
+        }
+
+        .host-card .role {
+            color: #cccccc;
+            margin-bottom: 1rem;
+        }
+
+        .host-card p {
+            color: #cccccc;
+            font-size: 0.9rem;
+        }
+
+        /* Registration Section */
+        .registration-section {
+            padding: 4rem 2rem;
+            background-color: #1a1a1a;
+        }
+
+        .registration-form {
+            max-width: 600px;
+            margin: 3rem auto 0;
+            background-color: #2a2a2a;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: 2px solid #ff6b35;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-submit {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #2a2a2a;
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid #3a3a3a;
+        }
+
+        .footer-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            color: #ff6b35;
+            font-weight: bold;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .videos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hosts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+        }
+
+        /* Adicionando estilos para o modal de compra */
+        .purchase-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            max-width: 600px;
+            margin: 2rem auto;
+            background-color: #1a1a1a;
+            border-radius: 15px;
+            position: relative;
+            min-height: calc(100vh - 4rem);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #ff6b35, #e55a2b);
+            padding: 2rem;
+            border-radius: 15px 15px 0 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+
+        .close-modal:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .modal-body {
+            padding: 2rem;
+            flex: 1;
+        }
+
+        .step {
+            display: none;
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        .step-counter {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #ff6b35;
+            font-weight: bold;
+        }
+
+        .quiz-question {
+            margin-bottom: 2rem;
+        }
+
+        .quiz-question h3 {
+            color: #ff6b35;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .quiz-option {
+            background-color: #2a2a2a;
+            border: 2px solid #3a3a3a;
+            padding: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: white;
+        }
+
+        .quiz-option:hover {
+            border-color: #ff6b35;
+            background-color: #3a3a3a;
+        }
+
+        .quiz-option.selected {
+            border-color: #ff6b35;
+            background-color: rgba(255, 107, 53, 0.1);
+        }
+
+        .offer-container {
+            text-align: center;
+        }
+
+        .original-price {
+            font-size: 1.2rem;
+            text-decoration: line-through;
+            color: #888;
+            margin-bottom: 0.5rem;
+        }
+
+        .current-price {
+            font-size: 3rem;
+            color: #ff6b35;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .discount-badge {
+            background-color: #ff6b35;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+
+        .timer {
+            background-color: #2a2a2a;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .timer h4 {
+            color: #ff6b35;
+            margin-bottom: 1rem;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .countdown-item {
+            background-color: #1a1a1a;
+            padding: 1rem;
+            border-radius: 8px;
+            min-width: 60px;
+        }
+
+        .countdown-number {
+            display: block;
+            color: #ff6b35;
+            font-size: 2rem;
+        }
+
+        .countdown-label {
+            font-size: 0.8rem;
+            color: #ccc;
+        }
+
+        .benefits-list {
+            text-align: left;
+            margin: 2rem 0;
+        }
+
+        .benefits-list li {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .benefits-list li::before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+        }
+
+        .checkout-form {
+            background-color: #2a2a2a;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+
+        .payment-method {
+            background-color: #1a1a1a;
+            border: 2px solid #3a3a3a;
+            padding: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            flex: 1;
+            text-align: center;
+        }
+
+        .payment-method:hover,
+        .payment-method.selected {
+            border-color: #ff6b35;
+            background-color: rgba(255, 107, 53, 0.1);
+        }
+
+        .step-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .btn-next {
+            background-color: #ff6b35;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            min-width: 150px;
+        }
+
+        .btn-next:hover {
+            background-color: #e55a2b;
+        }
+
+        .btn-next:disabled {
+            background-color: #666;
+            cursor: not-allowed;
+        }
+
+        .btn-back {
+            background-color: transparent;
+            color: #ccc;
+            padding: 1rem 2rem;
+            border: 2px solid #666;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-back:hover {
+            border-color: #ff6b35;
+            color: #ff6b35;
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                margin: 1rem;
+                min-height: calc(100vh - 2rem);
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .countdown {
+                font-size: 1.2rem;
+            }
+
+            .countdown-number {
+                font-size: 1.5rem;
+            }
+
+            .current-price {
+                font-size: 2.5rem;
+            }
+
+            .step-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">Marketing na Prática</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#curso">O Curso</a></li>
+                    <li><a href="#instrutoras">Instrutoras</a></li>
+                    <li><a href="#conteudo">Conteúdo</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Bem-vindo(a) ao<br><span class="highlight">Marketing na Prática</span></h1>
+                <p>Se você está aqui, é porque quer crescer no digital — e nós vamos te ajudar a chegar lá.</p>
+                <div class="hero-buttons">
+                    <!-- Alterando botão para abrir modal de compra -->
+                    <button class="btn-primary" onclick="openPurchaseModal()">COMPRAR AGORA</button>
+                    <a href="#registro" class="btn-secondary">LISTA DE ESPERA</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-08-13%20at%2022.28.55-D6BiqziFcEnNVZIFUmUbK3G4HvJ6VC.jpeg" alt="Mulher trabalhando com laptop" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section id="videos" class="video-section">
+        <div class="section-container">
+            <h2 class="section-title">Edições Anteriores</h2>
+            <div class="videos-grid">
+                <div class="video-card">
+                    <div class="video-placeholder">▶️</div>
+                    <div class="video-info">
+                        <h3>1ª Edição - Fundamentos</h3>
+                        <p>Conheça os principais conceitos e estratégias que transformaram mais de 500 profissionais em especialistas em marketing digital.</p>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-placeholder">▶️</div>
+                    <div class="video-info">
+                        <h3>2ª Edição - Avançado</h3>
+                        <p>Técnicas avançadas de conversão, automação e análise de dados que levaram nossos alunos a resultados extraordinários.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="curso" class="about-section">
+        <div class="section-container">
+            <h2 class="section-title">Sobre o Curso</h2>
+            <div class="about-content">
+                <p>O Marketing na Prática é um curso intensivo que combina teoria sólida com aplicação real. Em 8 semanas, você aprenderá desde os fundamentos até as estratégias mais avançadas do marketing digital.</p>
+                <p>Nosso método único foca na prática: cada conceito aprendido é imediatamente aplicado em projetos reais, garantindo que você saia do curso com experiência comprovada e resultados mensuráveis.</p>
+                <p>Mais de 1.200 profissionais já transformaram suas carreiras conosco. Agora é a sua vez.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hosts Section -->
+    <section id="instrutoras" class="hosts-section">
+        <div class="section-container">
+            <h2 class="section-title">Suas Instrutoras</h2>
+            <div class="hosts-grid">
+                <div class="host-card">
+                    <div class="host-avatar">👩‍💼</div>
+                    <h3>Ana Carolina Silva</h3>
+                    <div class="role">Especialista em Growth Marketing</div>
+                    <p>15 anos de experiência em marketing digital, ex-Google e Facebook. Responsável por campanhas que geraram mais de R$ 50 milhões em receita para startups e grandes empresas.</p>
+                </div>
+                <div class="host-card">
+                    <div class="host-avatar">👩‍💻</div>
+                    <h3>Mariana Santos</h3>
+                    <div class="role">Consultora em Performance</div>
+                    <p>Especialista em análise de dados e otimização de conversão. Ajudou mais de 200 empresas a aumentarem seu ROI em até 300% através de estratégias baseadas em dados.</p>
+                </div>
+                <div class="host-card">
+                    <div class="host-avatar">👩‍🎨</div>
+                    <h3>Juliana Costa</h3>
+                    <div class="role">Diretora de Conteúdo</div>
+                    <p>Criadora de conteúdo viral e estrategista de marca. Suas campanhas alcançaram mais de 10 milhões de pessoas e geraram engajamento orgânico para marcas de todos os tamanhos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section id="registro" class="registration-section">
+        <div class="section-container">
+            <h2 class="section-title">Reserve sua Vaga - 3ª Edição</h2>
+            <form class="registration-form" id="registrationForm">
+                <div class="form-group">
+                    <label for="nome">Nome Completo *</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefone">Telefone/WhatsApp *</label>
+                    <input type="tel" id="telefone" name="telefone" required>
+                </div>
+                <div class="form-group">
+                    <label for="experiencia">Nível de Experiência *</label>
+                    <select id="experiencia" name="experiencia" required>
+                        <option value="">Selecione...</option>
+                        <option value="iniciante">Iniciante</option>
+                        <option value="intermediario">Intermediário</option>
+                        <option value="avancado">Avançado</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="objetivo">Qual seu principal objetivo? *</label>
+                    <textarea id="objetivo" name="objetivo" placeholder="Conte-nos o que você espera alcançar com o curso..." required></textarea>
+                </div>
+                <div class="form-submit">
+                    <button type="submit" class="btn-primary">RESERVAR MINHA VAGA</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-logos">
+            <div class="footer-logo">🎯</div>
+            <div class="footer-logo">LIDERA</div>
+        </div>
+        <p>&copy; 2024 Marketing na Prática. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Adicionando modal de compra com fluxo multi-step -->
+    <div id="purchaseModal" class="purchase-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close-modal" onclick="closePurchaseModal()">&times;</button>
+                <h2>Marketing na Prática - 3ª Edição</h2>
+                <p>Transforme sua carreira em 8 semanas</p>
+            </div>
+            
+            <div class="modal-body">
+                <!-- Step 1: Quiz -->
+                <div class="step active" id="step1">
+                    <div class="step-counter">Etapa 1 de 3</div>
+                    <div class="quiz-question">
+                        <h3>Qual é o seu nível atual em marketing digital?</h3>
+                        <div class="quiz-options">
+                            <div class="quiz-option" data-value="iniciante">
+                                <strong>Iniciante</strong><br>
+                                Estou começando agora no marketing digital
+                            </div>
+                            <div class="quiz-option" data-value="intermediario">
+                                <strong>Intermediário</strong><br>
+                                Já tenho alguma experiência, mas quero me aprofundar
+                            </div>
+                            <div class="quiz-option" data-value="avancado">
+                                <strong>Avançado</strong><br>
+                                Tenho experiência, mas quero resultados ainda melhores
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Quiz 2 -->
+                <div class="step" id="step2">
+                    <div class="step-counter">Etapa 2 de 3</div>
+                    <div class="quiz-question">
+                        <h3>Qual é o seu principal objetivo?</h3>
+                        <div class="quiz-options">
+                            <div class="quiz-option" data-value="carreira">
+                                <strong>Mudar de carreira</strong><br>
+                                Quero trabalhar com marketing digital
+                            </div>
+                            <div class="quiz-option" data-value="negocio">
+                                <strong>Crescer meu negócio</strong><br>
+                                Tenho uma empresa e quero mais clientes
+                            </div>
+                            <div class="quiz-option" data-value="freelancer">
+                                <strong>Ser freelancer</strong><br>
+                                Quero trabalhar como consultor independente
+                            </div>
+                            <div class="quiz-option" data-value="conhecimento">
+                                <strong>Ampliar conhecimentos</strong><br>
+                                Quero me atualizar e aprender novas estratégias
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+               
+
+                <!-- Step 4: Checkout -->
+                <div class="step" id="step4">
+                    <div class="step-counter">Etapa 3 de 3</div>
+                    <h3>Finalize sua inscrição</h3>
+                    
+                    <div class="checkout-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Nome Completo</label>
+                                <input type="text" id="checkoutNome" required>
+                            </div>
+                            <div class="form-group">
+                                <label>E-mail</label>
+                                <input type="email" id="checkoutEmail" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>WhatsApp</label>
+                                <input type="tel" id="checkoutWhatsapp" required>
+                            </div>
+                            <div class="form-group">
+                                <label>CPF</label>
+                                <input type="text" id="checkoutCpf" required>
+                            </div>
+                        </div>
+
+                        <h4 style="margin: 2rem 0 1rem; color: #ff6b35;">Forma de Pagamento</h4>
+                        <div class="payment-methods">
+                            <div class="payment-method" data-payment="pix">
+                                <strong>PIX</strong><br>
+                                <small>Aprovação imediata</small>
+                            </div>
+                            <div class="payment-method" data-payment="cartao">
+                                <strong>Cartão</strong><br>
+                                <small>Até 12x sem juros</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; margin-bottom: 2rem;">
+                        <div style="background-color: #2a2a2a; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                            <strong>Total: R$ 997,00</strong>
+                        </div>
+                        <small style="color: #ccc;">
+                            🔒 Pagamento 100% seguro<br>
+                            ✅ Garantia de 30 dias
+                        </small>
+                    </div>
+                </div>
+
+                <div class="step-buttons">
+                    <button class="btn-back" id="backBtn" onclick="previousStep()" style="display: none;">Voltar</button>
+                    <button class="btn-next" id="nextBtn" onclick="nextStep()" disabled>Continuar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Simple validation
+            if (!data.nome || !data.email || !data.telefone || !data.experiencia || !data.objetivo) {
+                alert('Por favor, preencha todos os campos obrigatórios.');
+                return;
+            }
+            
+            // Simulate form submission
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            
+            submitButton.textContent = 'ENVIANDO...';
+            submitButton.disabled = true;
+            
+            setTimeout(() => {
+                alert('Inscrição realizada com sucesso! Entraremos em contato em breve.');
+                this.reset();
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+            }, 2000);
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(42, 42, 42, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.backgroundColor = '#2a2a2a';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // Video placeholder click effect
+        document.querySelectorAll('.video-placeholder').forEach(placeholder => {
+            placeholder.addEventListener('click', function() {
+                alert('Vídeo será carregado em breve! Inscreva-se para ter acesso completo.');
+            });
+        });
+
+        let currentStep = 1;
+        let quizAnswers = {};
+        let countdownInterval;
+
+        function openPurchaseModal() {
+            document.getElementById('purchaseModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            startCountdown();
+        }
+
+        function closePurchaseModal() {
+            document.getElementById('purchaseModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+            if (countdownInterval) {
+                clearInterval(countdownInterval);
+            }
+            resetModal();
+        }
+
+        function resetModal() {
+            currentStep = 1;
+            quizAnswers = {};
+            showStep(1);
+            document.querySelectorAll('.quiz-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            document.querySelectorAll('.payment-method').forEach(method => {
+                method.classList.remove('selected');
+            });
+            updateButtons();
+        }
+
+        function showStep(step) {
+            document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+            document.getElementById(`step${step}`).classList.add('active');
+            currentStep = step;
+            updateButtons();
+        }
+
+        function updateButtons() {
+            const backBtn = document.getElementById('backBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            backBtn.style.display = currentStep > 1 ? 'block' : 'none';
+            
+            if (currentStep === 4) {
+                nextBtn.textContent = 'Finalizar Compra';
+                nextBtn.disabled = !isStep4Valid();
+            } else {
+                nextBtn.textContent = 'Continuar';
+                nextBtn.disabled = !isCurrentStepValid();
+            }
+        }
+
+        function isCurrentStepValid() {
+            if (currentStep === 1 || currentStep === 2) {
+                return document.querySelector(`#step${currentStep} .quiz-option.selected`) !== null;
+            }
+            if (currentStep === 2) {
+                return true;
+            }
+            if (currentStep === 3) {
+                return isStep4Valid();
+            }
+            return false;
+        }
+
+        function isStep4Valid() {
+            const nome = document.getElementById('checkoutNome').value;
+            const email = document.getElementById('checkoutEmail').value;
+            const whatsapp = document.getElementById('checkoutWhatsapp').value.replace(/\D/g, '');
+            const cpf = document.getElementById('checkoutCpf').value;
+            const payment = document.querySelector('.payment-method.selected');
+            
+            return nome && email && whatsapp && cpf && payment;
+        }
+
+        function nextStep() {
+            if (currentStep < 4) {
+                showStep(currentStep + 1);
+            } else {
+                finalizePurchase();
+            }
+        }
+
+        function previousStep() {
+            if (currentStep > 1) {
+                showStep(currentStep - 1);
+            }
+        }
+
+        function finalizePurchase() {
+            const nome = document.getElementById('checkoutNome').value;
+            const email = document.getElementById('checkoutEmail').value;
+            const whatsapp = document.getElementById('checkoutWhatsapp').value.replace(/\D/g, '');
+            const payment = document.querySelector('.payment-method.selected').dataset.payment;
+            
+            const message = `Olá! Gostaria de finalizar minha inscrição no Marketing na Prática - 3ª Edição.
+
+*Dados da compra:*
+• Nome: ${nome}
+• E-mail: ${email}
+• WhatsApp: ${whatsapp}
+• Forma de pagamento: ${payment === 'pix' ? 'PIX' : 'Cartão de crédito'}
+• Valor: R$ 997,00
+
+Aguardo o link de pagamento!`;
+
+            const whatsappUrl = `https://wa.me/5511999999999?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+            
+            closePurchaseModal();
+        }
+
+        function startCountdown() {
+            let totalSeconds = 15 * 60; // 15 minutos
+            
+            countdownInterval = setInterval(() => {
+                const minutes = Math.floor(totalSeconds / 60);
+                const seconds = totalSeconds % 60;
+                
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+                
+                if (totalSeconds <= 0) {
+                    clearInterval(countdownInterval);
+                    alert('Tempo esgotado! A oferta expirou.');
+                    closePurchaseModal();
+                }
+                
+                totalSeconds--;
+            }, 1000);
+        }
+
+        // Quiz options selection
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('quiz-option')) {
+                const step = e.target.closest('.step');
+                step.querySelectorAll('.quiz-option').forEach(option => {
+                    option.classList.remove('selected');
+                });
+                e.target.classList.add('selected');
+                
+                const stepId = step.id;
+                quizAnswers[stepId] = e.target.dataset.value;
+                
+                updateButtons();
+            }
+            
+            if (e.target.classList.contains('payment-method')) {
+                document.querySelectorAll('.payment-method').forEach(method => {
+                    method.classList.remove('selected');
+                });
+                e.target.classList.add('selected');
+                updateButtons();
+            }
+        });
+
+        // Form inputs validation
+        document.addEventListener('input', function(e) {
+            if (e.target.closest('#step4')) {
+                updateButtons();
+            }
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('purchaseModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePurchaseModal();
+            }
+        });
+    </script>
+</body>
+</html>
